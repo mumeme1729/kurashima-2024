@@ -4,12 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>epk</title>
-    
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: black; /* 背景を黒に設定 */
+        overflow: hidden;
+      }
+
+      video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 動画をアスペクト比を保ちながら画面いっぱいに拡大 */
+      }
+    </style>
   </head>
   <body>
-    <video id="videoPlayer" width="640" height="360" controls autoplay playsinline>
-        <source id="videoSource" src="" type="video/mp4">
-        お使いのブラウザは動画の再生をサポートしていません。
+    <video id="videoPlayer" autoplay muted loop playsinline>
+      <source id="videoSource" src="" type="video/mp4">
+      お使いのブラウザは動画の再生をサポートしていません。
     </video>
 
     <script>

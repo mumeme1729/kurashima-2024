@@ -56,14 +56,16 @@
     <script>
       function setVideoSource() {
         const currentTime = new Date();
-        const hour = currentTime.getHours();
+        const minutes = currentTime.getMinutes();
 
         const videoSource = document.getElementById("videoSource");
+        const videoPlayer = document.getElementById("videoPlayer");
 
-        if (hour < 12) {
-          videoSource.src = "https://kurashima-20204.s3.ap-northeast-1.amazonaws.com/noise2.mp4";
+        // 10, 30, 50分台は動画A、それ以外（00, 20, 40分台）は動画B
+        if (minutes % 20 === 10 || minutes % 20 === 30 || minutes % 20 === 50) {
+          videoSource.src = "https://kurashima-20204.s3.ap-northeast-1.amazonaws.com/noise3.mp4"; // 動画A
         } else {
-          videoSource.src = "videoB.mp4";
+          videoSource.src = "https://kurashima-20204.s3.ap-northeast-1.amazonaws.com/yutty.mp4"; // 動画B
         }
 
         document.getElementById("videoPlayer").load();
